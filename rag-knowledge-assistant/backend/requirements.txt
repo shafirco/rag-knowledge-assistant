@@ -1,0 +1,32 @@
+# RAG Knowledge Assistant Dependencies
+
+# Web Framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+
+# HTTP and API
+httpx==0.25.2
+python-multipart==0.0.6
+
+# Data Models and Validation
+pydantic==2.5.0
+pydantic-settings==2.1.0
+
+# Vector Database
+faiss-cpu==1.7.4
+numpy==1.24.3
+
+# Machine Learning and NLP
+openai==1.3.7
+
+# Document Processing
+PyPDF2==3.0.1
+
+# Utilities
+python-dotenv==1.0.0
+
+# Development and Testing (optional)
+pytest==7.4.3
+pytest-asyncio==0.21.1
+black==23.11.0
+isort==5.12.0

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAG Knowledge Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧠 RAG Knowledge Assistant</h1>
+            <p>Upload documents and ask questions based on your knowledge base</p>
+        </header>
+
+        <main>
+            <!-- Upload Section -->
+            <section class="upload-section">
+                <h2>📄 Upload Document</h2>
+                <div class="upload-area">
+                    <input type="file" id="fileInput" accept=".txt,.md" />
+                    <button id="uploadBtn" class="btn btn-primary">Upload Document</button>
+                    <div id="uploadStatus" class="status"></div>
+                </div>
+                <div class="file-info">
+                    <small>Supported formats: .txt, .md (Text and Markdown files)</small>
+                </div>
+            </section>
+
+            <!-- Knowledge Base Stats -->
+            <section class="stats-section">
+                <h2>📊 Knowledge Base</h2>
+                <div id="kbStats" class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" id="docCount">-</div>
+                        <div class="stat-label">Documents</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="chunkCount">-</div>
+                        <div class="stat-label">Chunks</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="vectorCount">-</div>
+                        <div class="stat-label">Vectors</div>
+                    </div>
+                </div>
+                <button id="refreshStatsBtn" class="btn btn-secondary">Refresh Stats</button>
+                <button id="clearKbBtn" class="btn btn-danger">Clear All Documents</button>
+            </section>
+
+            <!-- Query Section -->
+            <section class="query-section">
+                <h2>💬 Ask a Question</h2>
+                <div class="query-form">
+                    <textarea 
+                        id="questionInput" 
+                        placeholder="Enter your question here..."
+                        rows="3"
+                    ></textarea>
+                    <div class="query-options">
+                        <label>
+                            Max Chunks: 
+                            <input type="number" id="maxChunks" value="5" min="1" max="20" />
+                        </label>
+                        <label>
+                            Similarity Threshold: 
+                            <input type="number" id="similarityThreshold" value="0.7" min="0" max="1" step="0.1" />
+                        </label>
+                        <button id="askBtn" class="btn btn-primary">Ask Question</button>
+                    </div>
+                    <div id="queryStatus" class="status"></div>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <h2>📝 Answer</h2>
+                <div id="answerArea" class="answer-area">
+                    <!-- Answer will be displayed here -->
+                </div>
+                
+                <h3>🔗 Sources</h3>
+                <div id="sourcesArea" class="sources-area">
+                    <!-- Sources will be displayed here -->
+                </div>
+
+                <div class="query-info">
+                    <small id="queryInfo">Processing time: -ms | Retrieved chunks: -</small>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <p>RAG Knowledge Assistant v1.0.0</p>
+                <div class="health-status">
+                    <span id="healthStatus">Checking health...</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
